@@ -4,9 +4,15 @@ const year = document.querySelector(`#year`);
 const result = document.querySelector(`#result`);
 
 check_button.addEventListener( `click` , () => {
-    result.innerHTML = ageCal( name.value, year.value );
-    name.value = '';
-    year.value = '';
-    
+
+    if ( name.value == '' || year.value == '') {
+        result.innerHTML =`<p class="alert alert-danger">All filed are required</p>`;
+    } else {
+        result.innerHTML = ageCal( name.value, year.value );
+        name.value = '';
+        year.value = '';
+    }        
+  
 });
+
 
