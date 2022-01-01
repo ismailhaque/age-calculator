@@ -4,11 +4,16 @@
  * @param {*} year 
  * @returns 
  */
+ let date = new Date();
 function ageCal(name,year) {
-    let date = new Date();
+    
     let age = date.getFullYear() - year;
 
     let ageStatus = checkageStatus(age);
+    
+    if (year > date.getFullYear()) {
+        return `<p class="alert alert-danger">Please provide accurate information.</p>`
+    }
     
     return`<p class="alert alert-${ ageStatus.statuscolor }">welcome ${ name } you are ${ age } years old and you are a ${ ageStatus.statusname }.</p>`;
 };
